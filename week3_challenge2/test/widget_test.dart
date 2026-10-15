@@ -1,30 +1,41 @@
-// This is a basic Flutter widget test.
-//
-// To perform an interaction with a widget in your test, use the WidgetTester
-// utility in the flutter_test package. For example, you can send tap and scroll
-// gestures. You can also use WidgetTester to find child widgets in the widget
-// tree, read text, and verify that the values of widget properties are correct.
-
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-
 import 'package:week3_cl2/main.dart';
 
 void main() {
-  testWidgets('Counter increments smoke test', (WidgetTester tester) async {
-    // Build our app and trigger a frame.
-    await tester.pumpWidget(const MyApp());
+  testWidgets('DrinkDetailPage displays drink details, increments counter, and shows dialog', (WidgetTester tester) async {
+    await tester.pumpWidget(
+      const MaterialApp(
+        home: DrinkDetailPage(drinkName: 'Matcha Latte'),
+      ),
+    );
 
-    // Verify that our counter starts at 0.
-    expect(find.text('0'), findsOneWidget);
-    expect(find.text('1'), findsNothing);
-
-    // Tap the '+' icon and trigger a frame.
-    await tester.tap(find.byIcon(Icons.add));
-    await tester.pump();
-
-    // Verify that our counter has incremented.
-    expect(find.text('0'), findsNothing);
+    // Verifikasi nama minuman dan nilai awal counter (1)
+    expect(find.text('Matcha Latte'), findsNWidgets(2)); // di AppBar dan di Body
     expect(find.text('1'), findsOneWidget);
+
+    // Tekan tombol '+' untuk menambah kuantitas
+    await tester.tap(find.byIcon(Icons.add_circle));
+    await tester.pump();
+    expect(find.text('2'), findsOneWidget);
+
+    // Tekan tombol '-' untuk mengurangi kuantitas
+    await tester.tap(find.byIcon(Icons.remove_circle));
+    await tester.pump();
+    expect(find.text('1'), findsOneWidget);
+
+    // Tekan tombol 'Tambah Pesanan' untuk menampilkan AlertDialog
+    await tester.tap(find.text('Tambah Pesanan'));
+    await tester.pumpAndSettle();
+
+    // Verifikasi kemunculan AlertDialog konfirmasi
+    expect(find.text('Pesanan Berhasil'), findsOneWidget);
+    expect(find.text('Anda telah memesan Matcha Latte sebanyak 1 cup'), findsOneWidget);
+    expect(find.text('OK'), findsOneWidget);
+
+    // Tutup AlertDialog dengan menekan 'OK'
+    await tester.tap(find.text('OK'));
+    await tester.pumpAndSettle();
+    expect(find.text('Pesanan Berhasil'), findsNothing);
   });
 }
