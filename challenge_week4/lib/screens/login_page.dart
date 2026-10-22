@@ -139,15 +139,40 @@ class _LoginPageState extends State<LoginPage> {
                                         ), // Text
                                       ), // SnackBar
                                     );
-                                    // Navigator.pushReplacement( // Gunakan pushReplacement agar tidak bisa back ke login
-                                    //  context,
-                                    //   MaterialPageRoute(
-                                    //    builder: (context) => MainScreen(), 
-                                    //  ),
-                                    // );
-                                    // }
                                   }
                                 },
+                                
+                                // onPressed: () {
+                                //       // Cek apakah semua inputan (email & password) valid
+                                //       if (_formKey.currentState!.validate()) {
+                                        
+                                //         // Opsional: Tampilkan SnackBar sukses sebentar
+                                //         ScaffoldMessenger.of(context).showSnackBar(
+                                //           const SnackBar(
+                                //             content: Text('Login Berhasil!'),
+                                //             backgroundColor: Colors.green,
+                                //           ),
+                                //         );
+
+                                //         // Pindah ke MainScreen
+                                //         Navigator.pushReplacement( // Gunakan pushReplacement agar tidak bisa back ke login
+                                //           context,
+                                //           MaterialPageRoute(
+                                //             builder: (context) => MainScreen(), 
+                                //           ),
+                                //         );
+                                //       }
+                                //     },
+                                //     child: const Text(
+                                //       'Masuk',
+                                //       style: TextStyle(
+                                //         fontSize: 18,
+                                //         color: Colors.white,
+                                //         fontWeight: FontWeight.bold,
+                                //       ),
+                                //     ),
+                                //   ),
+                                // ),
                                 child: const Text(
                                   'Masuk',
                                   style: TextStyle(

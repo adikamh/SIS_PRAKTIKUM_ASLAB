@@ -40,6 +40,12 @@ class _MainScreenState extends State<MainScreen> {
       SnackBar(content: Text('${drink.name} ditambahkan ke keranjang')),
     );
   }
+  
+  void _clearCart() {
+  setState(() {
+    _cartItems.clear();
+  });
+}
 
   void _removeFromCart(String drinkId) {
     setState(() {
@@ -51,7 +57,8 @@ class _MainScreenState extends State<MainScreen> {
   Widget build(BuildContext context) {
     final List<Widget> _pages = [
       HomePage(drinkList: _drinkList, onAddToCart: _addToCart),
-      CartPage(cartItems: _cartItems, onRemoveFromCart: _removeFromCart),
+      CartPage(cartItems: _cartItems, onRemoveFromCart: _removeFromCart
+       onClearCart: _clearCart,),
     ];
 
     return Scaffold(
