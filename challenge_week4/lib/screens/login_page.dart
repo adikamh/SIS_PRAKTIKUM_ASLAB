@@ -141,8 +141,18 @@ class _LoginPageState extends State<LoginPage> {
                                     );
                                   }
                                 },
-                                
-                                // onPressed: () {
+                                child: const Text(
+                                  'Masuk',
+                                  style: TextStyle(
+                                    fontSize: 18,
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.bold,
+                                  ), // TextStyle
+                                ), // Text
+                              ), // ElevatedButton
+                            ), // SizedBox
+
+                             // onPressed: () {
                                 //       // Cek apakah semua inputan (email & password) valid
                                 //       if (_formKey.currentState!.validate()) {
                                         
@@ -173,16 +183,7 @@ class _LoginPageState extends State<LoginPage> {
                                 //     ),
                                 //   ),
                                 // ),
-                                child: const Text(
-                                  'Masuk',
-                                  style: TextStyle(
-                                    fontSize: 18,
-                                    color: Colors.white,
-                                    fontWeight: FontWeight.bold,
-                                  ), // TextStyle
-                                ), // Text
-                              ), // ElevatedButton
-                            ), // SizedBox
+                            
                             const SizedBox(height: 16),
 
                             // Tombol untuk berpindah ke halaman register
