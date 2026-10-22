@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'main_screen.dart';
+import 'login_page.dart';
 
 class SplashScreen extends StatefulWidget {
   @override
@@ -11,15 +12,15 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
     super.initState();
-    _goToNavigateToMain();
+    _goToNavigateToLogin();
   }
 
-  _goToNavigateToMain() async {
+  _goToNavigateToLogin() async {
     await Future.delayed(Duration(seconds: 4));
     Navigator.pushReplacement(
       context,
       MaterialPageRoute(
-        builder: (context) => MainScreen(),
+        builder: (context) => LoginPage(),
       ),
     );
   }

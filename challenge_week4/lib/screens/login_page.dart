@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'register_page.dart';
+import 'main_screen.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -138,6 +139,13 @@ class _LoginPageState extends State<LoginPage> {
                                         ), // Text
                                       ), // SnackBar
                                     );
+                                    // Navigator.pushReplacement( // Gunakan pushReplacement agar tidak bisa back ke login
+                                    //  context,
+                                    //   MaterialPageRoute(
+                                    //    builder: (context) => MainScreen(), 
+                                    //  ),
+                                    // );
+                                    // }
                                   }
                                 },
                                 child: const Text(
