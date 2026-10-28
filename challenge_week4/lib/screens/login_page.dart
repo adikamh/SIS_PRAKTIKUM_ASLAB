@@ -129,60 +129,38 @@ class _LoginPageState extends State<LoginPage> {
                                     borderRadius: BorderRadius.circular(12),
                                   ), // RoundedRectangleBorder
                                 ),
-                                onPressed: () {
-                                  if (_formKey.currentState!.validate()) {
-                                    // Jika semua field valid maka akan menampilkan alert
-                                    ScaffoldMessenger.of(context).showSnackBar(
-                                      const SnackBar(
-                                        content: Text(
-                                          'Login berhasil divalidasi!',
-                                        ), // Text
-                                      ), // SnackBar
-                                    );
-                                  }
-                                },
-                                child: const Text(
-                                  'Masuk',
-                                  style: TextStyle(
-                                    fontSize: 18,
-                                    color: Colors.white,
-                                    fontWeight: FontWeight.bold,
-                                  ), // TextStyle
-                                ), // Text
-                              ), // ElevatedButton
-                            ), // SizedBox
 
-                             // onPressed: () {
-                                //       // Cek apakah semua inputan (email & password) valid
-                                //       if (_formKey.currentState!.validate()) {
+                             onPressed: () {
+                                      // Cek apakah semua inputan (email & password) valid
+                                      if (_formKey.currentState!.validate()) {
                                         
-                                //         // Opsional: Tampilkan SnackBar sukses sebentar
-                                //         ScaffoldMessenger.of(context).showSnackBar(
-                                //           const SnackBar(
-                                //             content: Text('Login Berhasil!'),
-                                //             backgroundColor: Colors.green,
-                                //           ),
-                                //         );
+                                        // Opsional: Tampilkan SnackBar sukses sebentar
+                                        ScaffoldMessenger.of(context).showSnackBar(
+                                          const SnackBar(
+                                            content: Text('Login Berhasil!'),
+                                            backgroundColor: Colors.green,
+                                          ),
+                                        );
 
-                                //         // Pindah ke MainScreen
-                                //         Navigator.pushReplacement( // Gunakan pushReplacement agar tidak bisa back ke login
-                                //           context,
-                                //           MaterialPageRoute(
-                                //             builder: (context) => MainScreen(), 
-                                //           ),
-                                //         );
-                                //       }
-                                //     },
-                                //     child: const Text(
-                                //       'Masuk',
-                                //       style: TextStyle(
-                                //         fontSize: 18,
-                                //         color: Colors.white,
-                                //         fontWeight: FontWeight.bold,
-                                //       ),
-                                //     ),
-                                //   ),
-                                // ),
+                                        // Pindah ke MainScreen
+                                        Navigator.pushReplacement( // Gunakan pushReplacement agar tidak bisa back ke login
+                                          context,
+                                          MaterialPageRoute(
+                                            builder: (context) => MainScreen(), 
+                                          ),
+                                        );
+                                      }
+                                    },
+                                    child: const Text(
+                                      'Masuk',
+                                      style: TextStyle(
+                                        fontSize: 18,
+                                        color: Colors.white,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
+                                  ),
+                                ),
                             
                             const SizedBox(height: 16),
 
